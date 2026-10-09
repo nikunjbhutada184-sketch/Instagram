@@ -1,0 +1,288 @@
+/* ========== RESET ========== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:#0d0d14;color:#f5f5f5;min-height:100vh}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input{font-family:inherit;border:none;outline:none}
+
+/* ========== LAYOUT ========== */
+.page-wrapper{display:flex;flex-direction:column;min-height:100vh}
+
+.main-content{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    max-width:1060px;
+    width:100%;
+    margin:0 auto;
+    padding:32px 40px;
+    gap:40px;
+}
+
+/* ========== LEFT SIDE ========== */
+.left-side{
+    flex:1;
+    max-width:540px;
+    overflow:hidden;
+}
+.left-inner{
+    display:flex;
+    flex-direction:column;
+}
+.ig-logo{margin-bottom:20px}
+.ig-logo svg{display:block}
+
+.hero-text{
+    font-size:26px;
+    font-weight:700;
+    line-height:1.4;
+    color:#f5f5f5;
+    margin-bottom:12px;
+}
+.green-text{
+    background:linear-gradient(90deg,#1CD760,#25D366);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+.collage-wrap{
+    width:100%;
+    max-width:440px;
+    margin:0 auto;
+}
+.collage-img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
+
+/* ========== RIGHT SIDE ========== */
+.right-side{
+    width:400px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+}
+.right-inner{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.login-heading{
+    font-size:16px;
+    font-weight:600;
+    color:#f5f5f5;
+    margin-bottom:28px;
+}
+
+/* ========== FORM ========== */
+.login-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:16px;
+}
+
+/* -- Input fields -- */
+.field{
+    position:relative;
+}
+.field input{
+    width:100%;
+    height:56px;
+    padding:24px 48px 8px 16px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:12px;
+    color:#fafafa;
+    font-size:15px;
+    transition:border-color .2s;
+}
+.field input:focus{
+    border-color:#0095f6;
+}
+/* Prevent browser autofill from turning inputs white */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus,
+.field input:-webkit-autofill:active{
+    -webkit-box-shadow:0 0 0 1000px #1a1a24 inset !important;
+    -webkit-text-fill-color:#fafafa !important;
+    border-color:rgba(255,255,255,0.15) !important;
+    transition:background-color 5000s ease-in-out 0s;
+    caret-color:#fafafa;
+}
+.field input:-webkit-autofill:focus{
+    border-color:#0095f6 !important;
+}
+.field label{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#a0a0a0;
+    font-size:13px;
+    pointer-events:none;
+    transition:all .15s ease;
+}
+.field input:focus+label,
+.field input:not(:placeholder-shown)+label{
+    top:14px;
+    transform:translateY(0);
+    font-size:10px;
+}
+
+/* -- Password toggle -- */
+.toggle-pw{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:2px;
+    line-height:0;
+}
+.field input:not(:placeholder-shown)~.toggle-pw{
+    display:flex;
+}
+
+/* -- Login button -- */
+.btn-login{
+    width:100%;
+    height:50px;
+    background:#0095f6;
+    border-radius:22px;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    margin-top:6px;
+    opacity:.5;
+    pointer-events:none;
+    transition:opacity .2s,background .2s;
+}
+.btn-login.active{
+    opacity:1;
+    pointer-events:auto;
+}
+.btn-login.active:hover{
+    background:#1877f2;
+}
+
+/* -- Forgot password -- */
+.forgot-link{
+    display:block;
+    text-align:center;
+    color:#e0f1ff;
+    font-size:14px;
+    margin:18px 0 32px;
+}
+.forgot-link:hover{color:#fff}
+
+/* -- Facebook -- */
+.btn-fb{
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:22px;
+    background:rgba(255,255,255,0.06);
+    color:#a8a8a8;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:12px;
+    transition:background .2s;
+}
+.btn-fb:hover{background:rgba(255,255,255,0.1)}
+
+/* -- Create account -- */
+.btn-create{
+    width:100%;
+    height:50px;
+    border:1px solid #0095f6;
+    border-radius:22px;
+    color:#0095f6;
+    font-size:15px;
+    font-weight:600;
+    background:transparent;
+    margin-bottom:30px;
+    transition:background .2s;
+}
+.btn-create:hover{background:rgba(0,149,246,0.08)}
+
+/* -- Meta mark -- */
+.meta-mark{
+    text-align:center;
+    color:#737373;
+    font-size:15px;
+}
+.meta-infinity{
+    font-size:20px;
+    margin-right:4px;
+    vertical-align:middle;
+}
+.meta-word{
+    vertical-align:middle;
+    font-weight:400;
+}
+
+/* ========== FOOTER ========== */
+.footer{
+    padding:16px 16px 28px;
+    max-width:1060px;
+    width:100%;
+    margin:0 auto;
+}
+.footer-nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:4px 16px;
+    margin-bottom:14px;
+}
+.footer-nav a{
+    color:#737373;
+    font-size:12px;
+    line-height:18px;
+}
+.footer-nav a:hover{text-decoration:underline}
+
+.footer-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+}
+.lang-select{
+    background:transparent;
+    border:none;
+    color:#737373;
+    font-size:12px;
+    font-family:inherit;
+    cursor:pointer;
+    outline:none;
+}
+.lang-select option{background:#1a1a1a;color:#f5f5f5}
+.copy{color:#737373;font-size:12px}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+    .main-content{flex-direction:column;padding:32px 20px}
+    .left-side{max-width:100%;text-align:center}
+    .left-inner{align-items:center}
+    .right-side{width:100%;max-width:400px}
+    .collage-wrap{max-width:340px}
+}
+@media(max-width:480px){
+    .hero-text{font-size:22px}
+    .collage-wrap{max-width:280px}
+    .right-side{max-width:100%}
+}
